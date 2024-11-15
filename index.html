@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДЛЯ ЕРТОРЕ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            padding: 20px;
+            font-size: 24px;
+            margin: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            width : 1000px;
+            height : 100px;
+            font-size: 18px;
+            font-weight: 24px;
+            background-color: #E6E6FA;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 title="Сделано НАРИМАНОМ">ДЛЯ ЕРТОРЕ, НАХОЖДЕНИЕ ДЕЛИТЕЛЕЙ</h1>
+    <input type="number" id="number" placeholder="Введи число" required />
+    <button title="negr"onclick="findDivisors()">ПРОВЕРКА</button>
+    <div id="result"></div>
+
+    <script>
+        function findDivisors() {
+            const number = parseInt(document.getElementById('number').value);
+            const resultDiv = document.getElementById('result');
+
+            // Проверяем, что число введено
+            if (isNaN(number) || number <= 0) {
+                resultDiv.textContent = 'Введи больше нуля пжжпжпжпжпжпп';
+                resultDiv.style.color = 'red';
+                return;
+            }
+
+            // Массив для хранения делителей
+            let divisors = [];
+
+            // Ищем делители
+            for (let i = 1; i <= number; i++) {
+                if (number % i === 0) {
+                    divisors.push(i);
+                }
+            }
+
+            // Отображаем результат
+            resultDiv.textContent = 'Делители числа ' + ': ' + divisors.join(', ');
+            resultDiv.style.color = 'black';
+        }
+    </script>
+
+</body>
+</html>
