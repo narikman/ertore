@@ -37,11 +37,15 @@
         }
         #result {
             margin-top: 20px;
-            width : 1000px;
-            height : 100px;
+            max-width: 100%; /* Сделаем результат адаптивным */
+            width: 1000px;
+            height: 100px;
             font-size: 18px;
-            font-weight: 24px;
+            font-weight: 600; /* Указан правильный вес шрифта */
             background-color: #E6E6FA;
+            overflow-wrap: break-word; /* Для переноса длинных строк */
+            padding: 10px;
+            text-align: center;
         }
     </style>
 </head>
@@ -49,7 +53,7 @@
 
     <h1 title="Сделано НАРИМАНОМ">ДЛЯ ЕРТОРЕ, НАХОЖДЕНИЕ ДЕЛИТЕЛЕЙ</h1>
     <input type="number" id="number" placeholder="Введи число" required />
-    <button title="negr"onclick="findDivisors()">ПРОВЕРКА</button>
+    <button title="Проверка делителей" onclick="findDivisors()">ПРОВЕРКА</button>
     <div id="result"></div>
 
     <script>
@@ -59,7 +63,7 @@
 
             // Проверяем, что число введено
             if (isNaN(number) || number <= 0) {
-                resultDiv.textContent = 'Введи больше нуля пжжпжпжпжпжпп';
+                resultDiv.textContent = 'Пожалуйста, введите число больше нуля.';
                 resultDiv.style.color = 'red';
                 return;
             }
@@ -75,7 +79,7 @@
             }
 
             // Отображаем результат
-            resultDiv.textContent = 'Делители числа ' + ': ' + divisors.join(', ');
+            resultDiv.textContent = 'Делители числа ' + number + ': ' + divisors.join(', ');
             resultDiv.style.color = 'black';
         }
     </script>
